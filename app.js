@@ -21,8 +21,13 @@ var blogSchema = new mongoose.Schema({
 //mongoose schema compiled into model
 var Blog = mongoose.model("Blog", blogSchema);
 
+Blog.create({
+   title: "Test Blog",
+   image: "https://unsplash.com/collections/151173/pets?photo=OcWwYCVIOOU",
+   body: "TESTING, TESTING....ONE, TWO, THREE....."
+});
 
-//RESTful Routes
+//RESTful ROUTES
 app.get("/", function(req, res){
     res.redirect("index");
 });
