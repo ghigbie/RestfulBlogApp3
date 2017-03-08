@@ -2,7 +2,7 @@
 
     <div class="ui main text container segment">
         <div class="ui huge header">This is a New Blog</div>
-        <form action="/blogs" method="POST">
+        <form class="ui form" action="/blogs" method="POST">
             <div class="field">
                 <strong><lable>Title</lable></strong>
                 <input type="text" name="blog[title]" placeholder="Blog Post Title">
@@ -13,10 +13,10 @@
             </div>
             <div class="field">
                 <strong><lable>Blog Post</lable></strong>
-                <textarea type="textarea" name="blog[body]" placeholder="This is what happened to me today..."></textarea>
+                <textarea name="blog[body]" placeholder="This is what happened to me today..."></textarea>
             </div>
             <div class="field">
-                <input type="submit">
+                <input  class="ui orange basic button" type="submit">
             </div>
         </form>
     </div>
