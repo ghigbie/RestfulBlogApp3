@@ -7,7 +7,7 @@ var bodyParser  = require("body-parser"),
     app         = express();
     
 app.get("/", function(req, res){
-    res.show("<h1>Slash page!</h1>");
+    res.send("<h1>Slash page!</h1>");
 });
 
 app.listen(process.env.PORT, process.env.IP, function(){
