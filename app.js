@@ -6,6 +6,11 @@ var bodyParser  = require("body-parser"),
     express     = require("express"),
     app         = express();
 
+mongoose.connect("mongod://localhost/restful_blog_app3");
+app.set("view engine", "ejs");
+app.use(express.static("public"));
+app.use(bodyParser.urlencoded({extended: true}));
+
 
 
 app.get("/", function(req, res){
@@ -19,6 +24,7 @@ app.get("/home", function(req, res){
 app.get("/index", function(req, res){
     res.render("index"); 
 });
+
 
 app.get("*", function(req, res){
     res.render("notfound"); 
