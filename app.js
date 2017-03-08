@@ -34,6 +34,7 @@ app.get("/home", function(req, res){
 app.get("/index", function(req, res){
     res.render("index"); //this redirects to /blogs
 });
+
 //CREATE ROUTE    //this is the meat of the CREATE ROUTE
 app.get("/blogs", function(req, res){
     Blog.find({}, function(err, blogs){
@@ -49,6 +50,21 @@ app.get("/blogs", function(req, res){
 //NEW ROUTE
 app.get("/blogs/new", function(req, res){
    res.render("new"); 
+});
+
+//CREATE ROUTE
+app.post("/blogs", function(req, res){
+    //create blog
+    Blog.create(req.body.blog, function(err, newBlog){
+        if(err){
+            console.log("THERE WAS AN ERROR IN THE CREATE ROUTE");
+            console.log(err);
+            res.render("new");
+        }else{
+             //then redirect
+            res.redirect("/blogs");
+        }
+    });
 });
 
 app.get("*", function(req, res){
