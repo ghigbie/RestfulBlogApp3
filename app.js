@@ -21,23 +21,31 @@ var blogSchema = new mongoose.Schema({
 //mongoose schema compiled into model
 var Blog = mongoose.model("Blog", blogSchema);
 
-Blog.create({
-   title: "Test Blog",
-   image: "https://unsplash.com/collections/151173/pets?photo=OcWwYCVIOOU",
-   body: "TESTING, TESTING....ONE, TWO, THREE....."
-});
-
 //RESTful ROUTES
-app.get("/", function(req, res){
-    res.redirect("index");
+
+app.get("/", function(req, res){ 
+    res.redirect("index"); //this redirects to /blogs
 });
 
 app.get("/home", function(req, res){
-    res.redirect("index");
+    res.redirect("index"); //this redirects to /blogs
 });
 
 app.get("/index", function(req, res){
-    res.render("index"); 
+    res.render("index"); //this redirects to /blogs
+});
+//CREATE ROUTE
+app.get("/blogs", function(req, res){
+    Blog.find({}, function(err, blogs){
+        if(err){
+            console.log("ERROR ON CREATE ROUTE");
+            console.log(err);
+        }else{
+            res.render("index", {blogs: blogs})//the second parameter is data that is used onthe page
+        }
+    });
+
+    res.render("index"); //this is the meat of the CREATE ROUTE
 });
 
 app.get("*", function(req, res){
