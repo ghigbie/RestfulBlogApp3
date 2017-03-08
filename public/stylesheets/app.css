@@ -5,3 +5,7 @@ body{
 i.icon{
     font-size: 1.5em;
 }
+
+.container.main{
+    margin-top: 7em;
+}

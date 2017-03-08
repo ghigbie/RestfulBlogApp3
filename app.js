@@ -44,7 +44,11 @@ app.get("/blogs", function(req, res){
             res.render("index", {blogs: blogs})//the second parameter is data that is used onthe page
         }
     });
+});
 
+//NEW ROUTE
+app.get("/blogs/new", function(req, res){
+   res.render("new"); 
 });
 
 app.get("*", function(req, res){
