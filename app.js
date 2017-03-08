@@ -7,5 +7,5 @@ var bodyParser  = require("body-parser"),
     app         = express();
 
 app.listen(process.env.PORT, process.env.IP, function(){
-    con
+  console.log("SEVER IS RUNNING!!!");
 });
