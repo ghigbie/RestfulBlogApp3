@@ -5,7 +5,11 @@ var bodyParser  = require("body-parser"),
     request     = require("request"),
     express     = require("express"),
     app         = express();
+    
+app.get("/", function(req, res){
+    res.show("<h1>Slash page!</h1>");
+});
 
 app.listen(process.env.PORT, process.env.IP, function(){
-  console.log("SEVER IS RUNNING!!!");
+    console.log("SEVER IS RUNNING!!!");
 });
