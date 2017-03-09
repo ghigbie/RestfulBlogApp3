@@ -4,17 +4,17 @@
 <div class="ui main text container segment">
     
     <div class="ui huge header"><%= blog.title %></div>
-    <div class="ui container">
-        <img class="" src="<%= blog.image %>">
-    </div>
-    <div class="ui container">
-        <%= blog.date %>
-    </div>
-    <div class="ui container">
-        <p><%= blog.body %></p>
-    </div>
-    <div class-"ui container">
-        <button class="ui orange big basic button">Edit</button>
+    <div class="uitop attached">
+        <div class="item">
+            <img class="ui centered rounded image" src="<%= blog.image %>">
+            <div class="content">
+                <span><%= blog.created.toDateString() %></span> <!-- need to figure out "created -->
+            </div>
+            <div class="description">
+                 <p><%= blog.body %></p>
+            </div>
+            <button class="ui orange big basic button">Edit</button>
+        </div>
     </div>
 </div>
 
