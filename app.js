@@ -67,6 +67,12 @@ app.post("/blogs", function(req, res){
     });
 });
 
+//SHOW ROUTE
+app.get("/blogs/:id", function(req, res){
+    res.render("show");
+});
+
+
 app.get("*", function(req, res){
     res.render("notfound"); 
 });
