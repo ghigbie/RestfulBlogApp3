@@ -2,7 +2,20 @@
 
 
 <div class="ui main text container segment">
-    <h1>Show Page</h1>
+    
+    <div class="ui huge header"><%= blog.title %></div>
+    <div class="ui container">
+        <img class="" src="<%= blog.image %>">
+    </div>
+    <div class="ui container">
+        <%= blog.date %>
+    </div>
+    <div class="ui container">
+        <p><%= blog.body %></p>
+    </div>
+    <div class-"ui container">
+        <button class="ui orange big basic button">Edit</button>
+    </div>
 </div>
 
 <% include ./partials/footer %>
