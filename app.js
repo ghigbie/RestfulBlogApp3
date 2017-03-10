@@ -97,7 +97,17 @@ app.get("/blogs/:id/edit", function(req, res){
 
 //UPDATE ROUTE - this comes from the edit.ejs page
 app.put("/blogs/:id", function(req, res){
-    res.send("UPDATE ROUTE")
+    //Blog.findByIdAndUpdate(id, newData, callback)
+    Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, updatedBlog){
+       if(err){
+           console.log("THERE WAS AN ERROR IN UPDATE ROUUTE");
+           console.log(err);
+           res.redirect("/blogs");
+       }else{
+           res.redirect("/blogs/" + req.params.id);
+       }
+    });
+    
 });
 
 
