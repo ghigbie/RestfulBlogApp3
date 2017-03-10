@@ -2,15 +2,15 @@
 
 <div class="ui main text container segment">
     <h1>Blog of Buldogs!!!</h1>
-    <% blogs.forEach(function(blog){ %>
+    <% blogs.forEach(function(blog){ %> <!-- This is done for each item -->
         <div>
             <h2> <%=blog.title%> </h2>
-            <img src="<%= blog.image %>" >
+            <img class="ui centered rounded image" src="<%= blog.image %>" >
             <div>
                 <span> <%= blog.created %> </span>
             </div>
             <p> <%= blog.body %> </p>
-            <a class="ui red big basic button" href="/blogs/<%= blog._id %>">Read More</a>
+            <a class="ui red big basic button" href="/blogs/<%= blog._id %>">Read More</a> <!--id is retreived from database here -->
         </div>
     <% }); %>
 </div>
