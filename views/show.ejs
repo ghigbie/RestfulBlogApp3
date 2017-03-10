@@ -11,7 +11,7 @@
                 <span><%= blog.created.toDateString() %></span> <!-- need to figure out "created -->
             </div>
             <div class="description">
-                 <p><%= blog.body %></p>
+                 <p><%- blog.body %></p> <!--The dash used instead of the = allows html to be run -->
             </div>
             <button class="ui orange big basic button">Edit</button>
         </div>
