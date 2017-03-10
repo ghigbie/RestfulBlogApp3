@@ -89,9 +89,14 @@ app.get("/blogs/:id/edit", function(req, res){
             console.log(err);
             res.redirect("/blogs");
         }else{
-            res.render("edit", {blog: foundBlog})
+            res.render("edit", {blog: foundBlog});
         }
     });
+});
+
+//UPDATE ROUTE - this comes from the edit.ejs page
+app.put("/blogs/:id", function(req, res){
+    res.send("UPDATE ROUTE")
 });
 
 
