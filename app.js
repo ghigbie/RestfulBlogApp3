@@ -112,7 +112,7 @@ app.put("/blogs/:id", function(req, res){
 
 //DELETE ROUTE
 app.delete("/bogs/:id", function(req, res){
-   res.show("DELETE ROUTE") 
+   res.send("DELETE ROUTE") 
 });
 
 
