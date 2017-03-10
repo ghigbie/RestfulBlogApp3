@@ -111,8 +111,17 @@ app.put("/blogs/:id", function(req, res){
 });
 
 //DELETE ROUTE
-app.delete("/bogs/:id", function(req, res){
-   res.send("DELETE ROUTE") 
+app.delete("/blogs/:id", function(req, res){
+   //Destroy blog
+   Blog.findByIdAndRemove(req.params.id, function(err){
+       if(err){
+           console.log("THERE WAS AN ERROR IN THE DESTROY ROUTE");
+           console.log(err);
+           res.redirect("/blogs");
+       }else{
+           res.redirect("/blogs");
+       }
+   });
 });
 
 
