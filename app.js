@@ -81,6 +81,11 @@ app.get("/blogs/:id", function(req, res){
     });
 });
 
+//EDIT ROUTE
+app.get("/blogs/:id/edit", function(req, res){
+    res.render("/edit");
+});
+
 
 app.get("*", function(req, res){
     res.render("notfound"); 
