@@ -26,15 +26,15 @@ var Blog = mongoose.model("Blog", blogSchema);
 //RESTful ROUTES
 
 app.get("/", function(req, res){ 
-    res.redirect("index"); //this redirects to /blogs
+    res.redirect("/blogs"); //this redirects to /blogs
 });
 
 app.get("/home", function(req, res){
-    res.redirect("index"); //this redirects to /blogs
+    res.redirect("/blogs"); //this redirects to /blogs
 });
 
 app.get("/index", function(req, res){
-    res.render("index"); //this redirects to /blogs
+    res.redirect("/blogs"); //this redirects to /blogs
 });
 
 //CREATE ROUTE    //this is the meat of the CREATE ROUTE
