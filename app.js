@@ -56,10 +56,7 @@ app.get("/blogs/new", function(req, res){
 
 //CREATE ROUTE
 app.post("/blogs", function(req, res){
-    console.log(req.body);
     req.body.blog.body = req.sanitize(req.body.blog.body);
-    console.log("=================");
-    console.log(req.body);
     Blog.create(req.body.blog, function(err, newBlog){
         if(err){
             console.log("THERE WAS AN ERROR IN THE CREATE ROUTE");
@@ -77,7 +74,7 @@ app.get("/blogs/:id", function(req, res){
     //find the blog
     Blog.findById(req.params.id, function(err, foundBlog){
         if(err){
-            console.log("ERROR IN FIND BY ID");
+            console.log("ERROR IN FIND BY ID IN THE SHOW ROUTE");
             console.log(err);
             res.redirect("/blogs");
         }else{
@@ -101,7 +98,7 @@ app.get("/blogs/:id/edit", function(req, res){
 
 //UPDATE ROUTE - this comes from the edit.ejs page
 app.put("/blogs/:id", function(req, res){
-    //Blog.findByIdAndUpdate(id, newData, callback)
+    req.body.blog.body = req.sanitize(req.body.blog.body);    //Blog.findByIdAndUpdate(id, newData, callback)
     Blog.findByIdAndUpdate(req.params.id, req.body.blog, function(err, updatedBlog){
        if(err){
            console.log("THERE WAS AN ERROR IN UPDATE ROUUTE");

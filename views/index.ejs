@@ -1,18 +1,30 @@
 <% include ./partials/header %>
 
-<div class="ui main text container segment">
-    <h1>Blog of Buldogs!!!</h1>
+<div class="ui main text container">
+    <h1 class="ui huge header">Blog of Buldogs!!!</h1>
+    <div class="ui top attached">
     <% blogs.forEach(function(blog){ %> <!-- This is done for each item -->
-        <div>
-            <h2> <%=blog.title%> </h2>
-            <img class="ui centered rounded image" src="<%= blog.image %>" >
-            <div>
-                <span> <%= blog.created.toDateString() %> </span>
+        <div class="ui divided item segment">
+            <h2> <%= blog.title%> </h2>
+            <div class="image">
+                <img class="ui centered rounded image" src="<%= blog.image %>" >
+                <div class="meta">
+                    <span> <%= blog.created.toDateString() %> </span>
+                </div>
             </div>
-            <p> <%- blog.body.substring(0, 100) %>... </p>
-            <a class="ui red big basic button" href="/blogs/<%= blog._id %>">Read More</a> <!--id is retreived from database here -->
+            <div class="ui divided item">
+                <div class="content">
+                    <p> <%- blog.body.substring(0, 100) %>... </p>
+                </div>
+                <div class="extra content divided ">
+                    <a class="ui red big basic button" href="/blogs/<%= blog._id %>">Read More 
+                    <i class="right chevron icon"></i></a><!--id is retreived from database here -->
+                </div>
+            </div>
+        
         </div>
     <% }); %>
+    </div>
 </div>
 
 <% include ./partials/footer %>
